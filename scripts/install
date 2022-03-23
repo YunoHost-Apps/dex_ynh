@@ -117,7 +117,13 @@ ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
 pushd "$final_path"
 	# Build the sources
 	ynh_use_go
-	$ynh_go_load_path make build
+	PROJ=dex
+	ORG_PATH=github.com/dexidp
+	REPO_PATH=$(ORG_PATH)/$(PROJ)
+	VERSION ?= $(shell ./scripts/git-version)
+	LD_FLAGS="-w -X main.version=$(VERSION)"
+	mkdir bin
+	$ynh_go install -v -ldflags $(LD_FLAGS) $(REPO_PATH)/cmd/dex
 popd
 
 ynh_remove_go
