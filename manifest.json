@@ -3,8 +3,7 @@
     "id": "dex",
     "packaging_format": 1,
     "description": {
-        "en": "Explain in *a few (10~15) words* the purpose of the app or what it actually does (it is meant to give a rough idea to users browsing a catalog of 100+ apps)",
-        "fr": "Expliquez en *quelques* (10~15) mots l'utilité de l'app ou ce qu'elle fait (l'objectif est de donner une idée grossière pour des utilisateurs qui naviguent dans un catalogue de 100+ apps)"
+        "en": "OpenID Connect Provider based on Yunohost LDAP server"
     },
     "version": "2.31.1~ynh1",
     "url": "https://github.com/YunoHost-Apps/dex_ynh",
@@ -40,22 +39,17 @@
                 "default": "/example"
             },
             {
-                "name": "is_public",
-                "type": "boolean",
-                "default": true
-            },
-            {
-                "name": "OIDC app name",
+                "name": "OIDC_name",
                 "type": "string",
                 "ask": "Name of the app you want to connect to the OIDC auth flow"
             },
             {
-                "name": "OIDC app secret",
+                "name": "OIDC_secret",
                 "type": "string",
                 "ask": "OIDC secret of the app you want to connect to the OIDC auth flow"
             },
             {
-                "name": "OIDC app name",
+                "name": "OIDC_callback",
                 "type": "string",
                 "ask": "Callback URI required by the app you want to connect to the OIDC auth flow"
             }
