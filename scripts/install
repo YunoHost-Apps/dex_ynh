@@ -30,8 +30,8 @@ path_url=$YNH_APP_ARG_PATH
 is_public=true
 
 oidc_name=$YNH_APP_ARG_OIDC_NAME
-oidc_secret=$YNH_APP_ARG_OIDC_secret
-oidc_callback=$YNH_APP_ARG_OIDC_callback
+oidc_secret=$YNH_APP_ARG_OIDC_SECRET
+oidc_callback=$YNH_APP_ARG_OIDC_CALLBACK
 
 app=$YNH_APP_INSTANCE_NAME
 
