@@ -120,7 +120,7 @@ pushd "$final_path"
 	PROJ=dex
 	ORG_PATH=github.com/dexidp
 	REPO_PATH="$ORG_PATH/$PROJ"
-	VERSION ?= $(shell ./scripts/git-version)
+	VERSION="2.31.1"
 	LD_FLAGS="-w -X main.version=$VERSION"
 	mkdir bin
 	$ynh_go install -v -ldflags $(LD_FLAGS) $(REPO_PATH)/cmd/dex
