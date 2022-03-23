@@ -28,8 +28,8 @@ Some long and extensive description of what the app is and does, lorem ipsum dol
 
 ## Captures d'écran
 
-![](./doc/screenshots/Dex screenshot.png)
 ![](./doc/screenshots/.DS_Store)
+![](./doc/screenshots/Dex_screenshot.png)
 
 ## Avertissements / informations importantes
 
