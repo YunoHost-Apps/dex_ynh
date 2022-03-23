@@ -17,11 +17,12 @@ ynh_script_progression --message="Loading installation settings..." --time --wei
 app=$YNH_APP_INSTANCE_NAME
 
 domain=$(ynh_app_setting_get --app=$app --key=domain)
-port=$(ynh_app_setting_get --app=$app --key=port)
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-db_user=$db_name
+path_url=$(ynh_app_setting_get --app=$app --key=path)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+port=$(ynh_app_setting_get --app=$app --key=port)
+oidc_name=$(ynh_app_setting_get --app=$app --key=oidc_name)
+oidc_secret=$(ynh_app_setting_get --app=$app --key=oidc_secret)
+oidc_callback=$(ynh_app_setting_get --app=$app --key=oidc_callback)
 
 #=================================================
 # STANDARD REMOVE

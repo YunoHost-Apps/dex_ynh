@@ -27,7 +27,7 @@ ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
-is_public=true
+is_public=1
 
 oidc_name=$YNH_APP_ARG_OIDC_NAME
 oidc_secret=$YNH_APP_ARG_OIDC_SECRET
@@ -73,7 +73,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --time --weight=1
 
-ynh_install_app_dependencies $pkg_dependencies
+#ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
 # CREATE DEDICATED USER
@@ -117,6 +117,7 @@ ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
 pushd "$final_path"
 	# Build the sources
 	ynh_use_go
+	unset GOPATH
 	make build
 popd
 
@@ -171,7 +172,7 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$ap
 ynh_script_progression --message="Configuring Fail2Ban..." --time --weight=1
 
 # Create a dedicated Fail2Ban config
-ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
+ynh_add_fail2ban_config --logpath="/var/log/dex/dex.log" --failregex="ldap: invalid password for user"
 
 #=================================================
 # SETUP SSOWAT
@@ -185,12 +186,6 @@ then
 	# The "main" permission is automatically created before the install script.
 	ynh_permission_update --permission="main" --add="visitors"
 fi
-
-### N.B. : the following extra permissions only make sense if your app
-### does have for example an admin interface or an API.
-
-# Only the admin can access the admin panel of the app (if the app has an admin panel)
-ynh_permission_create --permission="admin" --url="/admin" --allowed=$admin
 
 #=================================================
 # RELOAD NGINX

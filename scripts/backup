@@ -28,33 +28,24 @@ ynh_print_info --message="Loading installation settings..."
 
 app=$YNH_APP_INSTANCE_NAME
 
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 domain=$(ynh_app_setting_get --app=$app --key=domain)
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+path_url=$(ynh_app_setting_get --app=$app --key=path)
+final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+port=$(ynh_app_setting_get --app=$app --key=port)
+oidc_name=$(ynh_app_setting_get --app=$app --key=oidc_name)
+oidc_secret=$(ynh_app_setting_get --app=$app --key=oidc_secret)
+oidc_callback=$(ynh_app_setting_get --app=$app --key=oidc_callback)
 
 #=================================================
 # DECLARE DATA AND CONF FILES TO BACKUP
 #=================================================
 ynh_print_info --message="Declaring files to be backed up..."
 
-### N.B. : the following 'ynh_backup' calls are only a *declaration* of what needs
-### to be backuped and not an actual copy of any file. The actual backup that
-### creates and fill the archive with the files happens in the core after this
-### script is called. Hence ynh_backups calls takes basically 0 seconds to run.
-
 #=================================================
 # BACKUP THE APP MAIN DIR
 #=================================================
 
 ynh_backup --src_path="$final_path"
-
-#=================================================
-# BACKUP THE DATA DIR
-#=================================================
-
-ynh_backup --src_path="$datadir" --is_big
 
 #=================================================
 # BACKUP THE NGINX CONFIGURATION
@@ -83,14 +74,6 @@ ynh_backup --src_path="/etc/logrotate.d/$app"
 #=================================================
 
 ynh_backup --src_path="/etc/systemd/system/$app.service"
-
-#=================================================
-# BACKUP VARIOUS FILES
-#=================================================
-
-ynh_backup --src_path="/etc/cron.d/$app"
-
-ynh_backup --src_path="/etc/$app/"
 
 #=================================================
 # END OF SCRIPT

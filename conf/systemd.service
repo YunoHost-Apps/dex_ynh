@@ -7,7 +7,7 @@ Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/./bin/dex serve config.yaml
+ExecStart=__FINALPATH__/bin/dex serve config.yaml
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 

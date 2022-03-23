@@ -1,11 +1,17 @@
 # LDAP connector + Yunohost setup + staticClient as per manifest.json
-issuer: https://__DOMAIN__/__PATH_URL__
+issuer: https://__DOMAIN____PATH_URL__
 storage:
   type: sqlite3
   config:
     file: dex.db
 web:
   http: 127.0.0.1:__PORT__
+
+frontend:
+  issuer: dex
+  logoURL: /usr/share/yunohost/admin/img/logo.08bab97e.png
+  dir: web/
+  theme: light
 
 connectors:
 - type: ldap
@@ -43,6 +49,6 @@ connectors:
 staticClients:
 - id: __OIDC_NAME__
   redirectURIs:
-  - '__OIDC_CALLBACK__'
-  name: '__OIDC_NAME__'
+  - __OIDC_CALLBACK__
+  name: __OIDC_NAME__
   secret: __OIDC_SECRET__
