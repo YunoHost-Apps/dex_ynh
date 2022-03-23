@@ -123,7 +123,7 @@ pushd "$final_path"
 	VERSION="2.31.1"
 	LD_FLAGS="-w -X main.version=$VERSION"
 	mkdir bin
-	$ynh_go install -v -ldflags $(LD_FLAGS) $(REPO_PATH)/cmd/dex
+	$ynh_go install -v -ldflags "$LD_FLAGS" "$REPO_PATH/cmd/dex"
 popd
 
 ynh_remove_go
