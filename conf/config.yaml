@@ -7,6 +7,12 @@ storage:
 web:
   http: 127.0.0.1:__PORT__
 
+frontend:
+  issuer: dex
+  logoURL: /usr/share/yunohost/admin/img/logo.08bab97e.png
+  dir: web/
+  theme: light
+
 connectors:
 - type: ldap
   name: OpenLDAP
@@ -46,4 +52,3 @@ staticClients:
   - __OIDC_CALLBACK__
   name: __OIDC_NAME__
   secret: __OIDC_SECRET__
-  
