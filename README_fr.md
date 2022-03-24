@@ -11,15 +11,13 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-Some long and extensive description of what the app is and does, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Dex is an identity service that uses OpenID Connect to drive authentication for other apps.
+This Yunohost package will install Dex and setup a canonical OpenID Connect provider for your Yunohost instance, based on the LDAP user base, that can then be used as an authentification server for other Yunohost apps.
 
 ### Features
 
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco ;
-- Laboris nisi ut aliquip ex ea commodo consequat ;
-- Duis aute irure dolor in reprehenderit in voluptate ;
-- Velit esse cillum dolore eu fugiat nulla pariatur ;
-- Excepteur sint occaecat cupidatat non proident, sunt in culpa."
+- Fully working OpenID Connect authentification flow
+- Interfaced with Yunohost's LDAP server
 
 
 **Version incluse :** 2.31.1~ynh1
@@ -33,18 +31,14 @@ Some long and extensive description of what the app is and does, lorem ipsum dol
 
 ## Avertissements / informations importantes
 
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+* Known limitations :
+    * Only tested on x86 architectures
+    * Dex only allows you to setup one OpenID Connect app at a time
+    * However, it's a working multi-instance app, so you can install it more than once
+    * Dex is only an OIDC provider, and user management will depend on the app using it as an OIDC provider
 
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+* To be used carefully :
+    * Changing URL will work but will require some settings change in the app using Dex as an OIDC provider
 
 ## Documentations et ressources
 
