@@ -1,9 +1,7 @@
-Some long and extensive description of what the app is and does, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Dex is an identity service that uses OpenID Connect to drive authentication for other apps.
+This Yunohost package will install Dex and setup a canonical OpenID Connect provider for your Yunohost instance, based on the LDAP user base, that can then be used as an authentification server for other Yunohost apps.
 
 ### Features
 
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco ;
-- Laboris nisi ut aliquip ex ea commodo consequat ;
-- Duis aute irure dolor in reprehenderit in voluptate ;
-- Velit esse cillum dolore eu fugiat nulla pariatur ;
-- Excepteur sint occaecat cupidatat non proident, sunt in culpa."
+- Fully working OpenID Connect authentification flow
+- Interfaced with Yunohost's LDAP server
