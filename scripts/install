@@ -120,7 +120,7 @@ pushd "$final_path"
 	unset GOPATH
 	make build
 	# Setup a nice Yunohost logo
-	cp /usr/share/yunohost/admin/img/logo.08bab97e.png web/theme/light/logo.png
+	cp /usr/share/yunohost/admin/img/logo.08bab97e.png web/themes/light/logo.png
 popd
 
 ynh_remove_go
