@@ -117,13 +117,6 @@ ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
 pushd "$final_path"
 	# Build the sources
 	ynh_use_go
-	#PROJ=dex
-	#ORG_PATH=github.com/dexidp
-	#REPO_PATH="$ORG_PATH/$PROJ"
-	#VERSION="2.31.1"
-	#LD_FLAGS="-w -X main.version=$VERSION"
-	#mkdir bin
-	#export GOPATH=$final_path
 	unset GOPATH
 	make build
 popd
@@ -145,7 +138,7 @@ chown $app:$app "$final_path/config.yaml"
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..." --time --weight=1
 
-ynh_add_systemd_config
+#TOREMOVE ynh_add_systemd_config
 
 
 #=================================================
@@ -171,7 +164,7 @@ yunohost service add $app --description="OpenID Connect Provider" --log="/var/lo
 ynh_script_progression --message="Starting a systemd service..." --time --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+#TOREMOVE ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # SETUP FAIL2BAN
