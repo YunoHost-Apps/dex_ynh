@@ -138,7 +138,7 @@ chown $app:$app "$final_path/config.yaml"
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..." --time --weight=1
 
-#TOREMOVE ynh_add_systemd_config
+ynh_add_systemd_config
 
 
 #=================================================
@@ -164,7 +164,7 @@ yunohost service add $app --description="OpenID Connect Provider" --log="/var/lo
 ynh_script_progression --message="Starting a systemd service..." --time --weight=1
 
 # Start a systemd service
-#TOREMOVE ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # SETUP FAIL2BAN
@@ -172,7 +172,8 @@ ynh_script_progression --message="Starting a systemd service..." --time --weight
 ynh_script_progression --message="Configuring Fail2Ban..." --time --weight=1
 
 # Create a dedicated Fail2Ban config
-#TOREMOVE ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
+### FIX ME 
+# ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
 
 #=================================================
 # SETUP SSOWAT
