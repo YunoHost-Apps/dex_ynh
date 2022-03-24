@@ -9,7 +9,7 @@ web:
 
 frontend:
   issuer: dex
-  logoURL: /usr/share/yunohost/admin/img/logo.08bab97e.png
+  logoURL: theme/logo.png
   dir: web/
   theme: light
 
