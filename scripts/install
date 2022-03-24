@@ -115,9 +115,10 @@ ynh_script_progression --message="Building the sources (it will take some time).
 ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
 
 pushd "$final_path"
-	# Build the sources
+	# Setup go exe and environnement
 	ynh_use_go
-	unset GOPATH
+	"$ynh_go" env
+	# Build server from source
 	make build
 	# Setup a nice Yunohost logo
 	cp /usr/share/yunohost/admin/img/logo.08bab97e.png web/themes/light/logo.png

@@ -1,12 +1,8 @@
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+* Known limitations :
+    * Only tested on x86 architectures
+    * Dex only allows you to setup one OpenID Connect app at a time
+    * However, it's a working multi-instance app, so you can install it more than once
+    * Dex is only an OIDC provider, and user management will depend on the app using it as an OIDC provider
 
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+* To be used carefully :
+    * Changing URL will work but will require some settings change in the app using Dex as an OIDC provider
