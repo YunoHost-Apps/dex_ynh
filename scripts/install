@@ -123,7 +123,8 @@ pushd "$final_path"
 	#VERSION="2.31.1"
 	#LD_FLAGS="-w -X main.version=$VERSION"
 	#mkdir bin
-	export GOPATH=$final_path
+	#export GOPATH=$final_path
+	unset GOPATH
 	make build
 popd
 
