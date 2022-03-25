@@ -117,7 +117,7 @@ ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
 pushd "$final_path"
 	# Setup go exe and environnement
 	ynh_use_go
-	/opt/goenv/versions/1.17.8/bin/go env
+	go env
 	# Build server from source
 	make build 2>&1
 	# Setup a nice Yunohost logo
