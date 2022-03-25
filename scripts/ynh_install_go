@@ -75,6 +75,8 @@ ynh_use_go () {
     pushd $final_path
         $goenv_install_dir/bin/goenv local $go_version
     popd
+
+    "$ynh_go" env
 }
 
 # Install a specific version of Go
