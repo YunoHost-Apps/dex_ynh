@@ -49,6 +49,6 @@ connectors:
 staticClients:
 - id: __OIDC_NAME__
   redirectURIs:
-  - __OIDC_CALLBACK__
+  - https://__OIDC_CALLBACK__
   name: __OIDC_NAME__
   secret: __OIDC_SECRET__

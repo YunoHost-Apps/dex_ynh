@@ -86,14 +86,6 @@ ynh_script_progression --message="Upgrading NGINX web server configuration..." -
 ynh_add_nginx_config
 
 #=================================================
-# PHP-FPM CONFIGURATION
-#=================================================
-ynh_script_progression --message="Upgrading PHP-FPM configuration..." --time --weight=1
-
-# Create a dedicated PHP-FPM config
-ynh_add_fpm_config
-
-#=================================================
 # SPECIFIC UPGRADE
 #=================================================
 # BUILDING SOURCES AND SETTING UP THE SERVER
@@ -104,10 +96,12 @@ ynh_script_progression --message="Building the sources (it will take some time).
 ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
 
 pushd "$final_path"
-	# Build the sources
+	# Setup go exe and environnement
 	ynh_use_go
-	unset GOPATH
-	make build
+	# Build server from source
+	make build 2>&1
+	# Setup a nice Yunohost logo
+	cp /usr/share/yunohost/admin/img/logo.08bab97e.png web/themes/light/logo.png
 popd
 
 ynh_remove_go
@@ -145,7 +139,7 @@ ynh_use_logrotate --non-append
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --time --weight=1
 
-yunohost service add $app --description="A short description of the app" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="OpenID Connect Provider" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
