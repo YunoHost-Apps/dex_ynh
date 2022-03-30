@@ -39,6 +39,7 @@ This Yunohost package will install Dex and setup a canonical OpenID Connect prov
 
 * To be used carefully :
     * Changing URL will work but will require some settings change in the app using Dex as an OIDC provider
+    * Going to the URL will only let you see a "This is where Dex is installed." message
 
 ## Documentations et ressources
 
