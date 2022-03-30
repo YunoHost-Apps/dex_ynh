@@ -115,7 +115,7 @@ ynh_script_progression --message="Updating a configuration file..." --time --wei
 ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
 
 chmod 400 "$final_path/config.yaml"
-chown $app:$app "$final_path/some_config_file"
+chown $app:$app "$final_path/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
