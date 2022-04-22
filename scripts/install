@@ -192,6 +192,9 @@ then
 	ynh_permission_update --permission="main" --add="visitors"
 fi
 
+ynh_permission_update --permission="main" --show_tile=false
+
+
 #=================================================
 # RELOAD NGINX
 #=================================================
