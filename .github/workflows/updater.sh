@@ -9,8 +9,6 @@
 # Since each app is different, maintainers can adapt its contents so as to perform
 # automatic actions when a new upstream release is detected.
 
-# Remove this exit command when you are ready to run this Action
-exit 1
 
 #=================================================
 # FETCHING LATEST RELEASE AND ITS ASSETS
@@ -54,31 +52,8 @@ echo "${#assets[@]} available asset(s)"
 # UPDATE SOURCE FILES
 #=================================================
 
-# Here we use the $assets variable to get the resources published in the upstream release.
-# Here is an example for Grav, it has to be adapted in accordance with how the upstream releases look like.
-
-# Let's loop over the array of assets URLs
-for asset_url in ${assets[@]}; do
-
-echo "Handling asset at $asset_url"
-
-# Assign the asset to a source file in conf/ directory
-# Here we base the source file name upon a unique keyword in the assets url (admin vs. update)
-# Leave $src empty to ignore the asset
-case $asset_url in
-  *"admin"*)
-    src="app"
-    ;;
-  *"update"*)
-    src="app-upgrade"
-    ;;
-  *)
-    src=""
-    ;;
-esac
-
-# If $src is not empty, let's process the asset
-if [ ! -z "$src" ]; then
+src="app"
+asset_url="https://github.com/dexidp/dex/archive/refs/tags/v${version}.tar.gz"
 
 # Create the temporary directory
 tempdir="$(mktemp -d)"
@@ -91,29 +66,16 @@ checksum=$(sha256sum "$tempdir/$filename" | head -c 64)
 # Delete temporary directory
 rm -rf $tempdir
 
-# Get extension
-if [[ $filename == *.tar.gz ]]; then
-  extension=tar.gz
-else
-  extension=${filename##*.}
-fi
-
 # Rewrite source file
 cat <<EOT > conf/$src.src
 SOURCE_URL=$asset_url
 SOURCE_SUM=$checksum
 SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=$extension
+SOURCE_FORMAT=tar.gz
+SOURCE_EXTRACT=true
 SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
 EOT
 echo "... conf/$src.src updated"
-
-else
-echo "... asset ignored"
-fi
-
-done
 
 #=================================================
 # SPECIFIC UPDATE STEPS
