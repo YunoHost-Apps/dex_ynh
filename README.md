@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Dex for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/dex.svg)](https://dash.yunohost.org/appci/app/dex) ![](https://ci-apps.yunohost.org/ci/badges/dex.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/dex.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/dex.svg)](https://dash.yunohost.org/appci/app/dex) ![Working status](https://ci-apps.yunohost.org/ci/badges/dex.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/dex.maintain.svg)  
 [![Install Dex with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=dex)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -24,14 +24,12 @@ This Yunohost package will install Dex and setup a canonical OpenID Connect prov
 - Interfaced with Yunohost's LDAP server
 
 
-**Shipped version:** 2.31.1~ynh3
-
-
+**Shipped version:** 2.31.2~ynh1
 
 ## Screenshots
 
-![](./doc/screenshots/.DS_Store)
-![](./doc/screenshots/Dex_screenshot.png)
+![Screenshot of Dex](./doc/screenshots/.DS_Store)
+![Screenshot of Dex](./doc/screenshots/Dex_screenshot.png)
 
 ## Disclaimers / important information
 
@@ -49,21 +47,22 @@ This Yunohost package will install Dex and setup a canonical OpenID Connect prov
 
 ## Documentation and resources
 
-* Official app website: https://dexidp.io
-* Official admin documentation: https://dexidp.io/docs/
-* Upstream app code repository: https://github.com/dexidp/dex
-* YunoHost documentation for this app: https://yunohost.org/app_dex
-* Report a bug: https://github.com/YunoHost-Apps/dex_ynh/issues
+* Official app website: <https://dexidp.io>
+* Official admin documentation: <https://dexidp.io/docs/>
+* Upstream app code repository: <https://github.com/dexidp/dex>
+* YunoHost documentation for this app: <https://yunohost.org/app_dex>
+* Report a bug: <https://github.com/YunoHost-Apps/dex_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/dex_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/dex_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade dex -u https://github.com/YunoHost-Apps/dex_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
