@@ -15,7 +15,7 @@
         "userdoc": "",
         "code": "https://github.com/dexidp/dex"
     },
-    "license": "AGPL-3.0-only",
+    "license": "Apache-2.0",
     "maintainer": {
         "name": "Limezy"
     },
