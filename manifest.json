@@ -5,7 +5,7 @@
     "description": {
         "en": "OpenID Connect Provider based on Yunohost LDAP server"
     },
-    "version": "2.32.0~ynh1",
+    "version": "2.33.0~ynh1",
     "url": "https://github.com/YunoHost-Apps/dex_ynh",
     "upstream": {
         "license": "Apache-2.0",
@@ -15,7 +15,7 @@
         "userdoc": "",
         "code": "https://github.com/dexidp/dex"
     },
-    "license": "AGPL-3.0-only",
+    "license": "Apache-2.0",
     "maintainer": {
         "name": "Limezy"
     },
