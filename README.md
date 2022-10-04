@@ -29,7 +29,6 @@ This Yunohost package will install Dex and setup a canonical OpenID Connect prov
 
 ## Screenshots
 
-![Screenshot of Dex](./doc/screenshots/.DS_Store)
 ![Screenshot of Dex](./doc/screenshots/Dex_screenshot.png)
 
 ## Disclaimers / important information
