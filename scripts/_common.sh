@@ -6,7 +6,7 @@
 
 # dependencies used by the app
 
-GO_VERSION="1.17"
+GO_VERSION="1.19"
 
 #=================================================
 # PERSONAL HELPERS
