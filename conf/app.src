@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/dexidp/dex/archive/refs/tags/v2.35.1.tar.gz
-SOURCE_SUM=03f2696e9ee32665ecc22bb2caf581952fc032cf760002f90f1db24447ad7ebb
+SOURCE_URL=https://github.com/dexidp/dex/archive/refs/tags/v2.35.2.tar.gz
+SOURCE_SUM=a3c9a0c4fbdd0ceffd47b9b8e7a16afa4f64278313799878211286bd16c68184
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_EXTRACT=true
