@@ -121,12 +121,14 @@ pushd "$final_path"
 	export GOCACHE="$final_path/go/.cache"
 	# Build server from source
 	make build 2>&1
-	# Setup a nice Yunohost logo
-	cp /usr/share/yunohost/admin/img/logo.08bab97e.png web/themes/light/logo.png
 	ynh_secure_remove --file="$final_path/go"
 popd
 
 ynh_remove_go
+
+# Setup a nice Yunohost logo
+cp ../sources/logo_dark.png "$final_path/web/themes/dark/logo.png"
+cp ../sources/logo_light.png "$final_path/web/themes/light/logo.png"
 
 #=================================================
 # ADD A CONFIGURATION
