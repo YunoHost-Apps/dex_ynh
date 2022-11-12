@@ -24,8 +24,7 @@ This Yunohost package will install Dex and setup a canonical OpenID Connect prov
 - Interfaced with Yunohost's LDAP server
 
 
-**Version incluse :** 2.35.1~ynh1
-
+**Version incluse :** 2.35.3~ynh1
 
 ## Captures d'écran
 
