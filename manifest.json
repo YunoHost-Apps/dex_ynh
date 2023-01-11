@@ -3,7 +3,8 @@
     "id": "dex",
     "packaging_format": 1,
     "description": {
-        "en": "OpenID Connect Provider based on Yunohost LDAP server"
+        "en": "OpenID Connect Provider based on YunoHost LDAP server",
+        "fr": "Connecteur OpenID basé sur le serveur LDAP YunoHost"
     },
     "version": "2.35.3~ynh1",
     "url": "https://github.com/YunoHost-Apps/dex_ynh",
@@ -35,8 +36,8 @@
             {
                 "name": "path",
                 "type": "path",
-                "example": "/example",
-                "default": "/example"
+                "example": "/dex",
+                "default": "/dex"
             },
             {
                 "name": "OIDC_name",
