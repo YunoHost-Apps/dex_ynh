@@ -1,5 +1,5 @@
 [Unit]
-Description=OpenID Connect Provider
+Description=Dex: OpenID Connect Provider
 After=network.target
 
 [Service]
