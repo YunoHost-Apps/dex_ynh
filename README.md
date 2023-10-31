@@ -50,7 +50,7 @@ This YunoHost package will install Dex and setup a canonical OpenID Connect prov
 * Official app website: <https://dexidp.io>
 * Official admin documentation: <https://dexidp.io/docs/>
 * Upstream app code repository: <https://github.com/dexidp/dex>
-* YunoHost documentation for this app: <https://yunohost.org/app_dex>
+* YunoHost Store: <https://apps.yunohost.org/app/dex>
 * Report a bug: <https://github.com/YunoHost-Apps/dex_ynh/issues>
 
 ## Developer info
