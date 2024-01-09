@@ -46,7 +46,7 @@ ram.runtime = "50M"
     type = "string"
 
 
-    [install.OIDC_name]
+    [install.OIDC_secret]
     ask.en = "OIDC secret of the app you want to connect to the OIDC auth flow"
     ask.fr = "Secret OIDC de l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"
