@@ -26,6 +26,29 @@ ynh_script_progression --message="Stopping a systemd service..." --weight=1
 ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app/$app.log"
 
 #=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
+
+if [ -z "${name:-}" ]; then
+	name=$OIDC_name
+	ynh_app_setting_set --app=$app --key=name --value=$name
+	ynh_app_setting_delete --app=$app --key=OIDC_name
+fi
+
+if [ -z "${secret:-}" ]; then
+	secret=$OIDC_secret
+	ynh_app_setting_set --app=$app --key=secret --value=$secret
+	ynh_app_setting_delete --app=$app --key=OIDC_secret
+fi
+
+if [ -z "${callback:-}" ]; then
+	callback=$OIDC_callback
+	ynh_app_setting_set --app=$app --key=callback --value=$callback
+	ynh_app_setting_delete --app=$app --key=OIDC_callback
+fi
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
@@ -68,12 +91,12 @@ cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-#ynh_script_progression --message="Updating a configuration file..." --weight=1
+ynh_script_progression --message="Updating a configuration file..." --weight=1
 
-#ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
+ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 
-#chmod 400 "$install_dir/config.yaml"
-#chown $app:$app "$install_dir/config.yaml"
+chmod 400 "$install_dir/config.yaml"
+chown $app:$app "$install_dir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
