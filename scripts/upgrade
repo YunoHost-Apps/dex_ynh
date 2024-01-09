@@ -34,7 +34,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=1
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$install_dir"
+	ynh_setup_source --dest_dir="$install_dir" --keep="config.yaml"
 fi
 
 chmod -R o-rwx "$install_dir"
@@ -68,12 +68,12 @@ cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Updating a configuration file..." --weight=1
+#ynh_script_progression --message="Updating a configuration file..." --weight=1
 
-ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
+#ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 
-chmod 400 "$install_dir/config.yaml"
-chown $app:$app "$install_dir/config.yaml"
+#chmod 400 "$install_dir/config.yaml"
+#chown $app:$app "$install_dir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
