@@ -1,0 +1,84 @@
+packaging_format = 2
+
+id = "dex"
+name = "Dex"
+description.en = "OpenID Connect Provider based on YunoHost LDAP server"
+description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
+
+version = "2.37.0~ynh1"
+
+maintainers = ["Limezy"]
+
+[upstream]
+license = "Apache-2.0"
+website = "https://dexidp.io"
+admindoc = "https://dexidp.io/docs/"
+code = "https://github.com/YunoHost-Apps/dex_ynh"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = true
+
+ldap = true
+
+sso = false
+
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/dex"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.OIDC_name]
+    ask.en = "Name of the app you want to connect to the OIDC auth flow"
+    ask.fr = "Nom de l'application que vous souhaitez connecter au flux d'authentification OIDC"
+    type = "string"
+
+
+    [install.OIDC_name]
+    ask.en = "OIDC secret of the app you want to connect to the OIDC auth flow"
+    ask.fr = "Secret OIDC de l'application que vous souhaitez connecter au flux d'authentification OIDC"
+    type = "string"
+
+    [install.OIDC_callback]
+    ask.en = "Callback URI required by the app you want to connect to the OIDC auth flow"
+    ask.fr = "URI de rappel requis par l'application que vous souhaitez connecter au flux d'authentification OIDC"
+    type = "string"
+
+
+[resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        url = "https://github.com/dexidp/dex/archive/refs/tags/v2.37.0.tar.gz"
+        sha256 = "5140ecccac260855f375a40bb20120e644418d8e314c63667b0ee3e4ceace99f"
+
+        autoupdate.strategy = "latest_github_tag"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.data_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.ports]
+    main.default = 5556
+
+    [resources.database]
+    # This will automatically provision/deprovison a MySQL DB and store the corresponding credentials in settings $db_user, $db_name, $db_pwd
+    type = "mysql"

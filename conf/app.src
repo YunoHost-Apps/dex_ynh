@@ -1,6 +1,0 @@
-SOURCE_URL=https://github.com/dexidp/dex/archive/refs/tags/v2.37.0.tar.gz
-SOURCE_SUM=5140ecccac260855f375a40bb20120e644418d8e314c63667b0ee3e4ceace99f
-SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=tar.gz
-SOURCE_EXTRACT=true
-SOURCE_IN_SUBDIR=true
