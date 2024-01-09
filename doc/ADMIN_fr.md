@@ -7,4 +7,4 @@
 ### À utiliser avec précaution :
 
     * La modification de l'URL fonctionnera mais nécessitera certains changements de paramètres dans l'application en utilisant Dex comme fournisseur OIDC.
-    * Accéder à l'URL ne vous permettra de voir qu'un message : "C'est ici que Dex est installé".
+    * Accéder à l'URL ne vous permettra de voir qu'un message : "This is where Dex is installed.".

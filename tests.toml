@@ -10,6 +10,6 @@ test_format = 1.0
     # Default args to use for install
     # -------------------------------	
 
-		args.OIDC_name="Outline"
-		args.OIDC_secret="secret"
-		args.OIDC_callback="domain.tld/callback"
+		args.name = "Outline"
+		args.secret = "secret"
+		args.callback = "domain.tld/callback"

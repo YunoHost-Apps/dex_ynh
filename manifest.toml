@@ -40,18 +40,18 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
-    [install.OIDC_name]
+    [install.name]
     ask.en = "Name of the app you want to connect to the OIDC auth flow"
     ask.fr = "Nom de l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"
 
 
-    [install.OIDC_secret]
+    [install.secret]
     ask.en = "OIDC secret of the app you want to connect to the OIDC auth flow"
     ask.fr = "Secret OIDC de l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"
 
-    [install.OIDC_callback]
+    [install.callback]
     ask.en = "Callback URI required by the app you want to connect to the OIDC auth flow"
     ask.fr = "URI de rappel requis par l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"

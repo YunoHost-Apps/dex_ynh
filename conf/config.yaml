@@ -1,5 +1,5 @@
 # LDAP connector + Yunohost setup + staticClient as per manifest.json
-issuer: https://__DOMAIN____PATH_URL__
+issuer: https://__DOMAIN____PATH__
 storage:
   type: sqlite3
   config:
@@ -47,8 +47,8 @@ connectors:
 # Unfortunately the api is too complex to be used here
 # As a consequence we have to setup client as staticClient, which means we will need one Dex instance per client app
 staticClients:
-- id: __OIDC_NAME__
+- id: __NAME__
   redirectURIs:
-  - https://__OIDC_CALLBACK__
-  name: __OIDC_NAME__
-  secret: __OIDC_SECRET__
+  - https://__CALLBACK__
+  name: __NAME__
+  secret: __SECRET__
