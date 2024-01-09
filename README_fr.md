@@ -16,14 +16,13 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Dex is an identity service that uses OpenID Connect to drive authentication for other apps.
-This YunoHost package will install Dex and setup a canonical OpenID Connect provider for your YunoHost instance, based on the LDAP user base, that can then be used as an authentification server for other YunoHost apps.
+Dex est un service d'identité qui utilise OpenID Connect pour piloter l'authentification d'autres applications.
+Ce package YunoHost installera Dex et configurera un fournisseur canonique OpenID Connect pour votre instance YunoHost, basé sur la base d'utilisateurs LDAP, qui pourra ensuite être utilisé comme serveur d'authentification pour d'autres applications YunoHost.
 
-### Features
+### Caractéristiques
 
-- Fully working OpenID Connect authentification flow
-- Interfaced with YunoHost's LDAP server
-
+- Flux d'authentification OpenID Connect entièrement fonctionnel
+- Interfacé avec le serveur LDAP de YunoHost
 
 **Version incluse :** 2.37.0~ynh1
 
@@ -31,25 +30,11 @@ This YunoHost package will install Dex and setup a canonical OpenID Connect prov
 
 ![Capture d’écran de Dex](./doc/screenshots/Dex_screenshot.png)
 
-## Avertissements / informations importantes
-
-### Known limitations:
-
-   * Only tested on x86 architectures
-   * Dex only allows you to setup one OpenID Connect app at a time
-   * However, it's a working multi-instance app, so you can install it more than once
-   * Dex is only an OIDC provider, and user management will depend on the app using it as an OIDC provider
-
-### To be used carefully:
-
-   * Changing URL will work but will require some settings change in the app using Dex as an OIDC provider
-   * Going to the URL will only let you see a "This is where Dex is installed." message
-
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://dexidp.io>
 * Documentation officielle de l’admin : <https://dexidp.io/docs/>
-* Dépôt de code officiel de l’app : <https://github.com/dexidp/dex>
+* Dépôt de code officiel de l’app : <https://github.com/YunoHost-Apps/dex_ynh>
 * YunoHost Store: <https://apps.yunohost.org/app/dex>
 * Signaler un bug : <https://github.com/YunoHost-Apps/dex_ynh/issues>
 
