@@ -17,7 +17,7 @@ code = "https://github.com/YunoHost-Apps/dex_ynh"
 
 [integration]
 yunohost = ">= 11.2"
-architectures = "all"
+architectures = ["amd64"]
 multi_instance = true
 
 ldap = true
@@ -64,21 +64,14 @@ ram.runtime = "50M"
         [resources.sources.main]
         url = "https://github.com/dexidp/dex/archive/refs/tags/v2.37.0.tar.gz"
         sha256 = "5140ecccac260855f375a40bb20120e644418d8e314c63667b0ee3e4ceace99f"
-
         autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
 
     [resources.install_dir]
 
-    [resources.data_dir]
-
     [resources.permissions]
     main.url = "/"
 
     [resources.ports]
     main.default = 5556
-
-    [resources.database]
-    # This will automatically provision/deprovison a MySQL DB and store the corresponding credentials in settings $db_user, $db_name, $db_pwd
-    type = "mysql"
