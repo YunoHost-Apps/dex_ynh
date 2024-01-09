@@ -36,10 +36,6 @@ ram.runtime = "50M"
     type = "path"
     default = "/dex"
 
-    [install.init_main_permission]
-    type = "group"
-    default = "visitors"
-
     [install.name]
     ask.en = "Name of the app you want to connect to the OIDC auth flow"
     ask.fr = "Nom de l'application que vous souhaitez connecter au flux d'authentification OIDC"
@@ -72,6 +68,8 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
+    main.show_tile = false
+    main.allowed = "visitors"
 
     [resources.ports]
     main.default = 5556
