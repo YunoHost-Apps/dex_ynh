@@ -31,21 +31,21 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
 if [ -z "${name:-}" ]; then
-	name=$OIDC_name
+	name=$oidc_name
 	ynh_app_setting_set --app=$app --key=name --value=$name
-	ynh_app_setting_delete --app=$app --key=OIDC_name
+	ynh_app_setting_delete --app=$app --key=oidc_name
 fi
 
 if [ -z "${secret:-}" ]; then
-	secret=$OIDC_secret
+	secret=$oidc_secret
 	ynh_app_setting_set --app=$app --key=secret --value=$secret
-	ynh_app_setting_delete --app=$app --key=OIDC_secret
+	ynh_app_setting_delete --app=$app --key=oidc_secret
 fi
 
 if [ -z "${callback:-}" ]; then
-	callback=$OIDC_callback
+	callback=$oidc_callback
 	ynh_app_setting_set --app=$app --key=callback --value=$callback
-	ynh_app_setting_delete --app=$app --key=OIDC_callback
+	ynh_app_setting_delete --app=$app --key=oidc_callback
 fi
 
 #=================================================
