@@ -1,0 +1,23 @@
+test_format = 1.0
+
+[default]
+
+    # ------------
+    # Tests to run
+    # ------------
+
+    exclude = ["install.private"]  # The test IDs to be used in only/exclude statements are: install.root, install.subdir, install.nourl, install.multi, backup_restore, upgrade, upgrade.someCommitId change_url
+
+    # -------------------------------
+    # Default args to use for install
+    # -------------------------------	
+
+		args.name = "Outline"
+		args.secret = "secret"
+		args.callback = "domain.tld/callback"
+
+    # -------------------------------
+    # Commits to test upgrade from
+    # -------------------------------
+
+    test_upgrade_from.1381d7d0fbbfb9609e047f8476f113d17e95e233.name = "Upgrade from 2.37.0"
