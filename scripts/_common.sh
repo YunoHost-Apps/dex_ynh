@@ -4,7 +4,9 @@
 # COMMON VARIABLES
 #=================================================
 
-GO_VERSION="1.20"
+# dependencies used by the app
+
+GO_VERSION="1.19"
 
 #=================================================
 # PERSONAL HELPERS

@@ -1,0 +1,59 @@
+{
+    "name": "Dex",
+    "id": "dex",
+    "packaging_format": 1,
+    "description": {
+        "en": "OpenID Connect Provider based on YunoHost LDAP server",
+        "fr": "Connecteur OpenID basé sur le serveur LDAP YunoHost"
+    },
+    "version": "2.37.0~ynh1",
+    "url": "https://github.com/YunoHost-Apps/dex_ynh",
+    "upstream": {
+        "license": "Apache-2.0",
+        "website": "https://dexidp.io",
+        "demo": "",
+        "admindoc": "https://dexidp.io/docs/",
+        "userdoc": "",
+        "code": "https://github.com/dexidp/dex"
+    },
+    "license": "Apache-2.0",
+    "maintainer": {
+        "name": "Limezy"
+    },
+    "requirements": {
+        "yunohost": ">= 11.0.9"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx"
+    ],
+    "arguments": {
+        "install": [
+            {
+                "name": "domain",
+                "type": "domain"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "example": "/dex",
+                "default": "/dex"
+            },
+            {
+                "name": "OIDC_name",
+                "type": "string",
+                "ask": "Name of the app you want to connect to the OIDC auth flow"
+            },
+            {
+                "name": "OIDC_secret",
+                "type": "string",
+                "ask": "OIDC secret of the app you want to connect to the OIDC auth flow"
+            },
+            {
+                "name": "OIDC_callback",
+                "type": "string",
+                "ask": "Callback URI required by the app you want to connect to the OIDC auth flow"
+            }
+        ]
+    }
+}
