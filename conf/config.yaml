@@ -47,8 +47,8 @@ connectors:
 # Unfortunately the api is too complex to be used here
 # As a consequence we have to setup client as staticClient, which means we will need one Dex instance per client app
 staticClients:
-- id: __NAME__
+- id: __ID__
   redirectURIs:
   - https://__CALLBACK__
-  name: __NAME__
+  name: __ID__
   secret: __SECRET__

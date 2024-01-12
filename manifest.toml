@@ -36,7 +36,7 @@ ram.runtime = "50M"
     type = "path"
     default = "/dex"
 
-    [install.name]
+    [install.id]
     ask.en = "Name of the app you want to connect to the OIDC auth flow"
     ask.fr = "Nom de l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"

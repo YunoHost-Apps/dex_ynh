@@ -30,9 +30,9 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
-if [ -z "${name:-}" ]; then
-	name=$oidc_name
-	ynh_app_setting_set --app=$app --key=name --value=$name
+if [ -z "${id:-}" ]; then
+	id=$oidc_name
+	ynh_app_setting_set --app=$app --key=id --value=$id
 	ynh_app_setting_delete --app=$app --key=oidc_name
 fi
 
