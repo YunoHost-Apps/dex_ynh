@@ -1,5 +1,5 @@
 # LDAP connector + Yunohost setup + staticClient as per manifest.json
-issuer: https://__DOMAIN____PATH_URL__
+issuer: https://__DOMAIN____PATH__
 storage:
   type: sqlite3
   config:
