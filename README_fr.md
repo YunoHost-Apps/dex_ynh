@@ -34,7 +34,7 @@ Ce package YunoHost installera Dex et configurera un fournisseur canonique OpenI
 
 * Site officiel de l’app : <https://dexidp.io>
 * Documentation officielle de l’admin : <https://dexidp.io/docs/>
-* Dépôt de code officiel de l’app : <https://github.com/YunoHost-Apps/dex_ynh>
+* Dépôt de code officiel de l’app : <https://github.com/dexidp/dex>
 * YunoHost Store: <https://apps.yunohost.org/app/dex>
 * Signaler un bug : <https://github.com/YunoHost-Apps/dex_ynh/issues>
 
