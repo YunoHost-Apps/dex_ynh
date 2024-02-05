@@ -15,7 +15,7 @@ maintainers = ["Limezy"]
 license = "Apache-2.0"
 website = "https://dexidp.io"
 admindoc = "https://dexidp.io/docs/"
-code = "https://github.com/YunoHost-Apps/dex_ynh"
+code = "https://github.com/dexidp/dex"
 
 [integration]
 yunohost = ">= 11.2"
