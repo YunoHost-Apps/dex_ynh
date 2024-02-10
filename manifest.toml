@@ -9,7 +9,7 @@ description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
 version = "2.38.0~ynh1"
 
-maintainers = ["Limezy"]
+maintainers = [ "Limezy" ]
 
 [upstream]
 license = "Apache-2.0"
@@ -19,7 +19,7 @@ code = "https://github.com/dexidp/dex"
 
 [integration]
 yunohost = ">= 11.2"
-architectures = ["amd64"]
+architectures = "all"
 multi_instance = true
 
 ldap = true
@@ -63,14 +63,14 @@ ram.runtime = "50M"
     sha256 = "ed9fa62c70e7a54261cd631501f28d3d1bfae7074294a8a6a782353fa6981241"
     autoupdate.strategy = "latest_github_tag"
 
-    [resources.system_user]
+[resources.system_user]
 
-    [resources.install_dir]
+[resources.install_dir]
 
-    [resources.permissions]
-    main.url = "/"
-    main.show_tile = false
-    main.allowed = "visitors"
+[resources.permissions]
+main.url = "/"
+main.show_tile = false
+main.allowed = "visitors"
 
-    [resources.ports]
-    main.default = 5556
+[resources.ports]
+main.default = 5556
