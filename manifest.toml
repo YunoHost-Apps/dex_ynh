@@ -9,17 +9,17 @@ description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
 version = "2.37.0~ynh2"
 
-maintainers = ["Limezy"]
+maintainers = [ "Limezy" ]
 
 [upstream]
 license = "Apache-2.0"
 website = "https://dexidp.io"
 admindoc = "https://dexidp.io/docs/"
-code = "https://github.com/YunoHost-Apps/dex_ynh"
+code = "https://github.com/dexidp/dex"
 
 [integration]
 yunohost = ">= 11.2"
-architectures = ["amd64"]
+architectures = "all"
 multi_instance = true
 
 ldap = true
@@ -58,19 +58,19 @@ ram.runtime = "50M"
 
     [resources.sources]
 
-    [resources.sources.main]
-    url = "https://github.com/dexidp/dex/archive/refs/tags/v2.37.0.tar.gz"
-    sha256 = "5140ecccac260855f375a40bb20120e644418d8e314c63667b0ee3e4ceace99f"
-    autoupdate.strategy = "latest_github_tag"
+        [resources.sources.main]
+        url = "https://github.com/dexidp/dex/archive/refs/tags/v2.37.0.tar.gz"
+        sha256 = "5140ecccac260855f375a40bb20120e644418d8e314c63667b0ee3e4ceace99f"
+        autoupdate.strategy = "latest_github_release"
 
-    [resources.system_user]
+[resources.system_user]
 
-    [resources.install_dir]
+[resources.install_dir]
 
-    [resources.permissions]
-    main.url = "/"
-    main.show_tile = false
-    main.allowed = "visitors"
+[resources.permissions]
+main.url = "/"
+main.show_tile = false
+main.allowed = "visitors"
 
-    [resources.ports]
-    main.default = 5556
+[resources.ports]
+main.default = 5556
