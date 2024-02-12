@@ -29,7 +29,7 @@ ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$a
 #=================================================
 ynh_script_progression --message="Upgrading source files..." --weight=1
 
-_download_vaultwarden_from_docker
+_download_dex_from_docker
 
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"

@@ -8,7 +8,9 @@
 # PERSONAL HELPERS
 #=================================================
 
-_download_vaultwarden_from_docker() {
+# borrowed here: https://github.com/YunoHost-Apps/vaultwarden_ynh/blob/master/scripts/_common.sh
+
+_download_dex_from_docker() {
     docker_image="dexidp/dex"
     debian=$(lsb_release --codename --short)
     if [[ $debian = "bullseye" ]]; then

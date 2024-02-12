@@ -15,7 +15,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=1
 
-_download_vaultwarden_from_docker
+_download_dex_from_docker
 
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
