@@ -29,8 +29,7 @@ ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$a
 #=================================================
 ynh_script_progression --message="Upgrading source files..." --weight=1
 
-# Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.yaml"
+_download_vaultwarden_from_docker
 
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
@@ -38,23 +37,6 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 # SPECIFIC UPGRADE
 #=================================================
-# BUILDING SOURCES AND SETTING UP THE SERVER
-#=================================================
-ynh_script_progression --message="Building the sources (it will take some time)..." --weight=6
-
-ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
-
-pushd "$install_dir"
-	# Setup go exe and environnement
-	ynh_use_go
-	export GOPATH="$install_dir/go"
-	export GOCACHE="$install_dir/go/.cache"
-	# Build server from source
-	make build 2>&1
-	ynh_secure_remove --file="$install_dir/go"
-popd
-
-ynh_remove_go
 
 # Setup a nice Yunohost logo
 cp ../sources/logo_dark.png "$install_dir/web/themes/dark/logo.png"
