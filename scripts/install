@@ -8,7 +8,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-_download_vaultwarden_from_docker
+_download_dex_from_docker
 
 #=================================================
 # SPECIFIC SETUP
