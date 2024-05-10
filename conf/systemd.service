@@ -1,6 +1,6 @@
 [Unit]
 Description=Dex: OpenID Connect Provider
-After=network.target
+After=network.target nginx.service
 
 [Service]
 Type=simple
