@@ -31,9 +31,6 @@ ynh_remove_nginx_config
 
 # Remove the log files
 
-# Remove dependency on go and eventually remove go version
-ynh_remove_go
-
 #=================================================
 # END OF SCRIPT
 #=================================================

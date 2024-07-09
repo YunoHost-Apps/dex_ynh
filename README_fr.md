@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # Dex pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/dex.svg)](https://dash.yunohost.org/appci/app/dex) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/dex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/dex.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/dex.svg)](https://ci-apps.yunohost.org/ci/apps/dex/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/dex.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/dex.maintain.svg)
 
 [![Installer Dex avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=dex)
 
@@ -24,7 +24,7 @@ Ce package YunoHost installera Dex et configurera un fournisseur canonique OpenI
 - Flux d'authentification OpenID Connect entièrement fonctionnel
 - Interfacé avec le serveur LDAP de YunoHost
 
-**Version incluse :** 2.39.1~ynh1
+**Version incluse :** 2.40.0~ynh1
 
 ## Captures d’écran
 
