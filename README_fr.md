@@ -24,7 +24,7 @@ Ce package YunoHost installera Dex et configurera un fournisseur canonique OpenI
 - Flux d'authentification OpenID Connect entièrement fonctionnel
 - Interfacé avec le serveur LDAP de YunoHost
 
-**Version incluse :** 2.41.1~ynh1
+**Version incluse :** 2.41.1~ynh2
 
 ## Captures d’écran
 
