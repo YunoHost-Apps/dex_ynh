@@ -7,7 +7,7 @@ name = "Dex"
 description.en = "OpenID Connect Provider based on YunoHost LDAP server"
 description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
-version = "2.41.1~ynh1"
+version = "2.41.1~ynh2"
 
 maintainers = [ "Limezy" ]
 
