@@ -63,14 +63,14 @@ ram.runtime = "50M"
     sha256 = "83ebc30f781cb3881405622233acdec9914eb191b358b6ff256921b7d2cd832f"
     autoupdate.strategy = "latest_github_tag"
 
-[resources.system_user]
+    [resources.system_user]
 
-[resources.install_dir]
+    [resources.install_dir]
 
-[resources.permissions]
-main.url = "/"
-main.show_tile = false
-main.allowed = "visitors"
+    [resources.permissions]
+    main.url = "/"
+    main.show_tile = false
+    main.allowed = "visitors"
 
-[resources.ports]
-main.default = 5556
+    [resources.ports]
+    main.default = 5556
