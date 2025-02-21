@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # Dex para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/dex.svg)](https://ci-apps.yunohost.org/ci/apps/dex/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/dex.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/dex.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/dex)](https://ci-apps.yunohost.org/ci/apps/dex/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/dex)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/dex)
 
 [![Instalar Dex con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=dex)
 
@@ -25,7 +27,7 @@ This YunoHost package will install Dex and setup a canonical OpenID Connect prov
 - Interfaced with YunoHost's LDAP server
 
 
-**Versión proporcionada:** 2.41.1~ynh2
+**Versión proporcionada:** 2.42.0~ynh1
 
 ## Capturas de pantalla
 
