@@ -44,6 +44,9 @@ connectors:
 
       nameAttr: cn
 
+oauth2:
+  skipApprovalScreen: true
+
 # Unfortunately the api is too complex to be used here
 # As a consequence we have to setup client as staticClient, which means we will need one Dex instance per client app
 staticClients:
