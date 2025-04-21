@@ -1,59 +1,50 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# STANDARD UPGRADE STEPS
-#=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping a systemd service..." --weight=1
+ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$app/$app.log"
+ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-# ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
+# ynh_script_progression "Ensuring downward compatibility..."
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Upgrading source files..." --weight=1
+ynh_script_progression "Upgrading source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.yaml"
+ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.yaml"
 
-chmod -R o-rwx "$install_dir"
-chown -R "$app:www-data" "$install_dir"
-
-#=================================================
-# SPECIFIC UPGRADE
 #=================================================
 # BUILDING SOURCES AND SETTING UP THE SERVER
 #=================================================
-ynh_script_progression --message="Building the sources (it will take some time)..." --weight=6
+ynh_script_progression "Building the sources (it will take some time)..."
 
-ynh_exec_warn_less ynh_install_go --go_version=$GO_VERSION
+ynh_go_install
 
 pushd "$install_dir"
 	# Setup go exe and environnement
-	ynh_use_go
 	export GOPATH="$install_dir/go"
 	export GOCACHE="$install_dir/go/.cache"
+
 	# Build server from source
 	make build 2>&1
-	ynh_secure_remove --file="$install_dir/go"
+
+	# Post-build cleanup
+	chown -R $app:$app "$install_dir/bin"
+	chmod -R o-rwx "$install_dir/bin"
+	ynh_safe_rm "$install_dir/go"
 popd
 
-ynh_remove_go
+ynh_go_remove
 
 # Setup a nice Yunohost logo
 cp ../sources/logo_dark.png "$install_dir/web/themes/dark/logo.png"
@@ -62,37 +53,34 @@ cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Updating a configuration file..." --weight=1
+ynh_script_progression "Updating configuration..."
 
-ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
-
-chmod 400 "$install_dir/config.yaml"
-chown "$app:$app" "$install_dir/config.yaml"
+ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
+ynh_script_progression "Upgrading system configurations related to $app..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 # Create a dedicated systemd config
-ynh_add_systemd_config
+ynh_config_add_systemd
 yunohost service add "$app" --description="OpenID Connect Provider" --log="/var/log/$app/$app.log"
 
 # Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
+ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemctl --service="$app" --action="start"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed" --last
+ynh_script_progression "Upgrade of $app completed"
