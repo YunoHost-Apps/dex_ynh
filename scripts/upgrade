@@ -32,11 +32,15 @@ ynh_go_install
 
 pushd "$install_dir"
 	# Setup go exe and environnement
-
 	export GOPATH="$install_dir/go"
 	export GOCACHE="$install_dir/go/.cache"
+
 	# Build server from source
 	make build 2>&1
+
+	# Post-build cleanup
+	chown -R $app:$app "$install_dir/bin"
+	chmod -R o-rwx "$install_dir/bin"
 	ynh_safe_rm "$install_dir/go"
 popd
 
