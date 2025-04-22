@@ -7,7 +7,7 @@ name = "Dex"
 description.en = "OpenID Connect Provider based on YunoHost LDAP server"
 description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
-version = "2.42.1~ynh2"
+version = "2.42.1~ynh3"
 
 maintainers = [ "Limezy" ]
 
@@ -28,7 +28,7 @@ ldap = true
 sso = false
 
 disk = "50M"
-ram.build = "700M"
+ram.build = "80M"
 ram.runtime = "50M"
 
 [install]

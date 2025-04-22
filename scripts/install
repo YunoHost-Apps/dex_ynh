@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source _common.sh
+source ynh_docker_image_extract
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -8,32 +9,11 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
+_download_dex_from_docker
 
 #=================================================
 # SPECIFIC SETUP
 #=================================================
-# BUILDING SOURCES AND SETTING UP THE SERVER
-#=================================================
-ynh_script_progression "Building the sources (it will take some time)..."
-
-ynh_go_install
-
-pushd "$install_dir"
-	# Setup go exe and environnement
-	export GOPATH="$install_dir/go"
-	export GOCACHE="$install_dir/go/.cache"
-
-	# Build server from source
-	make build 2>&1
-
-	# Post-build cleanup
-	chown -R $app:$app "$install_dir/bin"
-	chmod -R o-rwx "$install_dir/bin"
-	ynh_safe_rm "$install_dir/go"
-popd
-
-ynh_go_remove
 
 # Setup a nice YunoHost logo
 cp ../sources/logo_dark.png "$install_dir/web/themes/dark/logo.png"
