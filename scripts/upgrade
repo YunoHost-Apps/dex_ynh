@@ -14,7 +14,13 @@ ynh_systemctl --service="$app" --action="stop"
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-# ynh_script_progression "Ensuring downward compatibility..."
+ynh_script_progression "Ensuring downward compatibility..."
+
+# The app now only supports one instance
+if [ $(yunohost app list -f --output-as json | jq -r '[ .apps[] | select(.manifest.id == "dex").id ] | length') -gt 1 ]
+then
+    ynh_die("The Dex package for YunoHost now handles multiple client applications. Follow the pre-upgrade instructions.")
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -27,7 +33,6 @@ ynh_safe_rm "$install_dir"
 # And now extract the dex binary
 _download_dex_from_docker
 
-
 #=================================================
 # SPECIFIC SETUP
 #=================================================
@@ -35,12 +40,20 @@ _download_dex_from_docker
 cp ../sources/logo_dark.png "$install_dir/web/themes/dark/logo.png"
 cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 
+# Setup the scripts
+ynh_config_add --template="../sources/regenerate_config.sh" --destination="$install_dir/regenerate_config.sh"
+ynh_config_add --template="../sources/add_config.sh" --destination="$install_dir/add_config.sh"
+chmod ugo=x "$install_dir/regenerate_config.sh"
+chmod ugo=x "$install_dir/add_config.sh"
+
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================
 ynh_script_progression "Updating configuration..."
 
-ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
+ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml.head"
+
+mkdir -p "$install_dir/config.yaml.d"
 
 #=================================================
 # SETUP SYSTEMD

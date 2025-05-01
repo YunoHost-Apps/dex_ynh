@@ -7,7 +7,7 @@ name = "Dex"
 description.en = "OpenID Connect Provider based on YunoHost LDAP server"
 description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
-version = "2.42.1~ynh3"
+version = "2.42.1~ynh4"
 
 maintainers = [ "Limezy" ]
 
@@ -21,7 +21,7 @@ code = "https://github.com/dexidp/dex"
 yunohost = ">= 11.2.18"
 helpers_version = "2.1"
 architectures = "all"
-multi_instance = true
+multi_instance = false
 
 ldap = true
 

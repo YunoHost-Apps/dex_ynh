@@ -1,0 +1,11 @@
+[Unit]
+Description=Monitoring Dex configuration changes
+BindsTo=__APP__.service
+After=__APP__.service
+
+[Path]
+PathModified=__INSTALL_DIR__/config.yaml
+PathModified=__INSTALL_DIR__/config.yaml.d
+
+[Install]
+WantedBy=multi-user.target
