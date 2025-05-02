@@ -1,7 +1,9 @@
 Les applications nécessitant l'OIDC ajoutent automatiquement leurs fichiers de configuration dans `__INSTALL_DIR__/config.yaml.d`.
 Vous pouvez ajouter votre propre configuration dans des fichiers dédiés dans ce répertoire, en suivant ce modèle :
 
+(laissez la première ligne vide)
 ```
+
  - id : $OIDC_NAME 
  redirectURIs :
    - https://$OIDC_CALLBACK_URL
