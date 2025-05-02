@@ -21,8 +21,8 @@ ynh_string_random() {
         | sed --quiet 's/\(.\{'"$length"'\}\).*/\1/p'
 }
 
-if [ -z "$4" ];
-    4="$(ynh_string_random --length=32 --filter='A-F0-9')"
+if [ -z "$4" ]; then
+    set 4 "$(ynh_string_random --length=32 --filter='A-F0-9')"
 fi
 
 cat <<EOF >> __INSTALL_DIR__/config.yaml.d/$1
