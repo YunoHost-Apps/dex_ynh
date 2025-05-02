@@ -1,25 +1,21 @@
 #!/bin/bash
 
-# $1 is APP
-# $2 is OIDC_NAME
-# $3 is OIDC_CALLBACK
-# $4 is OIDC_SECRET
-
 simple_random_string() {
     dd if=/dev/urandom bs=1 count=1000 2> /dev/null \
         | tr --complement --delete "A-F0-9" \
         | sed --quiet 's/\(.\{32\}\).*/\1/p'
 }
 
-if [ -z "$4" ]; then
-    set 4 "$(simple_random_string)"
-fi
+APP=$1
+OIDC_NAME=$2
+OIDC_CALLBACK=${3/#https:\/\//}
+OIDC_SECRET=${4:-$(simple_random_string)}
 
-cat <<EOF >> __INSTALL_DIR__/config.yaml.d/$1
+cat <<EOF >> __INSTALL_DIR__/config.yaml.d/$APP
 
-- id: $2
+- id: $OIDC_NAME
   redirectURIs:
-  - https://$3
-  name: $2
-  secret: $4
+  - https://$OIDC_CALLBACK
+  name: $OIDC_NAME
+  secret: $OIDC_SECRET
 EOF
