@@ -40,7 +40,7 @@ ram.runtime = "50M"
     default = "/dex"
 
     [install.optional_settings]
-    type = "text"
+    type = "markdown"
     ask.en = "The next settings are optional. If any of them is left empty, then Dex will not be configured for a first client."
     ask.fr = "Les paramètres suivants sont optionnels. Si l'un d'entre eux est laissé vide, alors Dex ne seront pas configurée pour un premier client."
 
