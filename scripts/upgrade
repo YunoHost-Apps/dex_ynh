@@ -28,7 +28,8 @@ fi
 ynh_script_progression "Upgrading source files..."
 
 # Remove the previously generated files beforehand
-ynh_safe_rm "$install_dir"
+ynh_safe_rm "$install_dir/bin"
+ynh_safe_rm "$install_dir/web"
 
 # And now extract the dex binary
 _download_dex_from_docker
