@@ -22,8 +22,8 @@ cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 # Setup the scripts
 ynh_config_add --template="../sources/regenerate_config.sh" --destination="$install_dir/regenerate_config.sh"
 ynh_config_add --template="../sources/add_config.sh" --destination="$install_dir/add_config.sh"
-chmod ugo=x "$install_dir/regenerate_config.sh"
-chmod ugo=x "$install_dir/add_config.sh"
+chmod ugo=rx "$install_dir/regenerate_config.sh"
+chmod ugo=rx "$install_dir/add_config.sh"
 
 #=================================================
 # ADD A CONFIGURATION
@@ -36,7 +36,7 @@ mkdir -p "$install_dir/config.yaml.d"
 
 # Add a first client
 if [[ -n ${oidc_name:-} && -n ${oidc_callback:-} && -n ${oidc_secret:-} ]]; then
-    bash "$install_dir/add_config.sh" "$oidc_name" "$oidc_callback" "$oidc_secret"
+    bash "$install_dir/add_config.sh" "$app" "$oidc_name" "$oidc_callback" "$oidc_secret"
 fi
 
 #=================================================
@@ -63,7 +63,7 @@ ynh_config_add_logrotate
 ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-systemctl enable "$app.path" --quiet --now
+systemctl enable "$app.path" --quiet
 ynh_systemctl --service="$app" --action="start"
 
 #=================================================
