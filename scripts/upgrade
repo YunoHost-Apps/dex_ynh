@@ -19,7 +19,7 @@ ynh_script_progression "Ensuring downward compatibility..."
 # The app now only supports one instance
 if [ $(yunohost app list -f --output-as json | jq -r '[ .apps[] | select(.manifest.id == "dex").id ] | length') -gt 1 ]
 then
-    ynh_die("The Dex package for YunoHost now handles multiple client applications. Follow the pre-upgrade instructions.")
+    ynh_die "The Dex package for YunoHost now handles multiple client applications. Follow the pre-upgrade instructions."
 fi
 
 #=================================================
