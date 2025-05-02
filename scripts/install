@@ -52,7 +52,7 @@ ynh_config_add_systemd
 yunohost service add "$app" --description="OpenID Connect Provider" --log="/var/log/$app/$app.log"
 
 # Add monitoring service
-ynh_config_add --template="dex.path" --destination="/etc/systemd/system/${app}.path"
+ynh_config_add --template="systemd.path" --destination="/etc/systemd/system/$app.path"
 
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
@@ -63,7 +63,7 @@ ynh_config_add_logrotate
 ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
-systemctl enable "$app.path" --quiet
+systemctl enable "$app.path" --quiet --now
 ynh_systemctl --service="$app" --action="start"
 
 #=================================================
