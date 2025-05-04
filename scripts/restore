@@ -18,10 +18,9 @@ ynh_script_progression "Restoring system configurations related to $app..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
-ynh_restore "/etc/systemd/system/$app.path"
+ynh_restore "/etc/systemd/system/$app-monitor.path"
+ynh_restore "/etc/systemd/system/$app-monitor.service"
 ynh_restore "/etc/systemd/system/$app.service"
-systemctl enable "$app.path" --quiet
-systemctl enable "$app.service" --quiet
 yunohost service add "$app" --description="OpenID Connect Provider" --log="/var/log/$app/$app.log"
 
 ynh_restore "/etc/logrotate.d/$app"
@@ -38,6 +37,8 @@ ynh_restore "/var/log/$app/"
 ynh_script_progression "Reloading NGINX web server and $app's service..."
 
 ynh_systemctl --service="$app" --action="start"
+systemctl enable "$app-monitor.service" --quiet --now
+systemctl enable "$app-monitor.path" --quiet --now
 
 ynh_systemctl --service=nginx --action=reload
 

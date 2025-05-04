@@ -1,5 +1,5 @@
 [Unit]
-Description=Monitoring Dex configuration changes
+Description=Monitoring __APP__ configuration changes
 
 [Path]
 PathModified=__INSTALL_DIR__/config.yaml
