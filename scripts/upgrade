@@ -9,7 +9,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
 
-systemctl disable "$app.path" --quiet --now
+systemctl disable "$app.path" --quiet --now || true
 ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
