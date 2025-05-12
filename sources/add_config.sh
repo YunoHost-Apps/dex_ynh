@@ -12,7 +12,6 @@ OIDC_CALLBACK=${3/#https:\/\//}
 OIDC_SECRET=${4:-$(simple_random_string)}
 
 cat <<EOF > __INSTALL_DIR__/config.yaml.d/$APP
-
 - id: $OIDC_NAME
   redirectURIs:
   - https://$OIDC_CALLBACK
