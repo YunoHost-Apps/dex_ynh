@@ -34,8 +34,8 @@ cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 # Setup the scripts
 ynh_config_add --template="../sources/regenerate_config.sh" --destination="$install_dir/regenerate_config.sh"
 ynh_config_add --template="../sources/add_config.sh" --destination="$install_dir/add_config.sh"
-chmod ugo=rx "$install_dir/regenerate_config.sh"
-chmod ugo=rx "$install_dir/add_config.sh"
+chmod 550 "$install_dir/regenerate_config.sh"
+chmod 550 "$install_dir/add_config.sh"
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -44,7 +44,7 @@ ynh_script_progression "Updating configuration..."
 
 ynh_config_add --template="config.yaml.head" --destination="$install_dir/config.yaml.head"
 
-mkdir -p "$install_dir/config.yaml.d"
+install "$install_dir/config.yaml.d" -o $app -g $app
 
 # Add a first client
 if [[ -n ${oidc_name:-} && -n ${oidc_callback:-} && -n ${oidc_secret:-} ]]; then
