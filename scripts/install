@@ -30,7 +30,7 @@ chmod ugo=rx "$install_dir/add_config.sh"
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml.head"
+ynh_config_add --template="config.yaml.head" --destination="$install_dir/config.yaml.head"
 
 mkdir -p "$install_dir/config.yaml.d"
 
