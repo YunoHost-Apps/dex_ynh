@@ -32,7 +32,7 @@ ynh_script_progression "Adding $app's configuration..."
 
 ynh_config_add --template="config.yaml.head" --destination="$install_dir/config.yaml.head"
 
-install "$install_dir/config.yaml.d" -o $app -g $app
+install -d "$install_dir/config.yaml.d" -o $app -g $app
 
 # Add a first client
 if [[ -n ${oidc_name:-} && -n ${oidc_callback:-} && -n ${oidc_secret:-} ]]; then
