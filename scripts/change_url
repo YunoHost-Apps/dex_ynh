@@ -22,7 +22,7 @@ ynh_config_change_url_nginx
 #=================================================
 
 # Create a dedicated YAML config
-ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
+ynh_config_add --template="config.yaml.head" --destination="$install_dir/config.yaml.head"
 
 #=================================================
 # START SYSTEMD SERVICE
