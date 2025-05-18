@@ -46,10 +46,15 @@ ynh_config_add --template="config.yaml.head" --destination="$install_dir/config.
 
 install -d "$install_dir/config.yaml.d" -o $app -g $app
 
+touch "$install_dir/config.yaml"
+chmod 660 "$install_dir/config.yaml"
+
 # Add a first client
 if [[ -n ${oidc_name:-} && -n ${oidc_callback:-} && -n ${oidc_secret:-} ]]; then
     bash "$install_dir/add_config.sh" "$app" "$oidc_name" "$oidc_callback" "$oidc_secret"
 fi
+
+chown $app:$app -R "$install_dir"
 
 #=================================================
 # SETUP SYSTEMD
