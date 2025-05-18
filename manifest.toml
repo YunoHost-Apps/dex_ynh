@@ -7,7 +7,7 @@ name = "Dex"
 description.en = "OpenID Connect Provider based on YunoHost LDAP server"
 description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
-version = "2.42.1~ynh3"
+version = "2.42.1~ynh4"
 
 maintainers = [ "Limezy" ]
 
@@ -21,7 +21,7 @@ code = "https://github.com/dexidp/dex"
 yunohost = ">= 11.2.18"
 helpers_version = "2.1"
 architectures = "all"
-multi_instance = true
+multi_instance = false
 
 ldap = true
 
@@ -39,17 +39,25 @@ ram.runtime = "50M"
     type = "path"
     default = "/dex"
 
+    [install.optional_settings]
+    type = "markdown"
+    ask.en = "The next settings are optional. If any of them is left empty, then Dex will not be configured for a first client."
+    ask.fr = "Les paramètres suivants sont optionnels. Si l'un d'entre eux est laissé vide, alors Dex ne seront pas configurée pour un premier client."
+
     [install.oidc_name]
+    optional = true
     ask.en = "Name of the app you want to connect to the OIDC auth flow"
     ask.fr = "Nom de l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"
 
     [install.oidc_secret]
+    optional = true
     ask.en = "OIDC secret of the app you want to connect to the OIDC auth flow"
     ask.fr = "Secret OIDC de l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"
 
     [install.oidc_callback]
+    optional = true
     ask.en = "Callback URI required by the app you want to connect to the OIDC auth flow"
     ask.fr = "URI de rappel requis par l'application que vous souhaitez connecter au flux d'authentification OIDC"
     type = "string"

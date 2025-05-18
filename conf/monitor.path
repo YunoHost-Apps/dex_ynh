@@ -1,0 +1,10 @@
+[Unit]
+Description=Monitoring __APP__ configuration changes
+
+[Path]
+PathModified=__INSTALL_DIR__/config.yaml
+PathModified=__INSTALL_DIR__/config.yaml.head
+PathModified=__INSTALL_DIR__/config.yaml.d
+
+[Install]
+WantedBy=multi-user.target
