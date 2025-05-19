@@ -7,7 +7,7 @@ name = "Dex"
 description.en = "OpenID Connect Provider based on YunoHost LDAP server"
 description.fr = "Connecteur OpenID basé sur le serveur LDAP YunoHost"
 
-version = "2.42.1~ynh4"
+version = "2.43.0~ynh1"
 
 maintainers = [ "Limezy" ]
 
@@ -68,8 +68,8 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/dexidp/dex/archive/refs/tags/v2.42.1.tar.gz"
-    sha256 = "510cd5ce85c759b6aa2b9ea82ccf1957a2f8527589eb1c47ca2227ceae7f18f2"
+    url = "https://github.com/dexidp/dex/archive/refs/tags/v2.43.0.tar.gz"
+    sha256 = "53ed4055ed1b4dac2b664b8fdb11313ac1181bc68b32b2e82274fe24fc1f7b6b"
     autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
