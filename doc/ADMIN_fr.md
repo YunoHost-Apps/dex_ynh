@@ -1,10 +1,17 @@
-### Limitations connues :
+Les applications nécessitant l'OIDC ajoutent automatiquement leurs fichiers de configuration dans `__INSTALL_DIR__/config.yaml.d`.
+Vous pouvez ajouter votre propre configuration dans des fichiers dédiés dans ce répertoire, en suivant ce modèle :
 
-    * Dex vous permet uniquement de configurer une seule application OpenID Connect à la fois
-    * Cependant, il s'agit d'une application multi-instance fonctionnelle, vous pouvez donc l'installer plusieurs fois
-    * Dex est uniquement un fournisseur OIDC et la gestion des utilisateurs dépendra de l'application qui l'utilise en tant que fournisseur OIDC.
+(laissez la première ligne vide)
+```
 
-### À utiliser avec précaution :
+ - id : $OIDC_NAME 
+ redirectURIs :
+   - https://$OIDC_CALLBACK_URL
+ name : $OIDC_NAME
+ secret : $OIDC_SECRET
+```
 
-    * La modification de l'URL fonctionnera mais nécessitera certains changements de paramètres dans l'application en utilisant Dex comme fournisseur OIDC.
-    * Accéder à l'URL ne vous permettra de voir qu'un message : "This is where Dex is installed.".
+### Limitations
+
+   * Le changement d'URL est déconseillé, car il fonctionnera mais nécessitera des changements de paramètres lourds dans les applications utilisant Dex comme fournisseur d'OIDC.
+   * Aller à l'URL ne vous fera voir qu'un message "C'est ici que Dex est installé".

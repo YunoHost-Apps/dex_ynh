@@ -19,12 +19,30 @@ _download_dex_from_docker
 cp ../sources/logo_dark.png "$install_dir/web/themes/dark/logo.png"
 cp ../sources/logo_light.png "$install_dir/web/themes/light/logo.png"
 
+# Setup the scripts
+ynh_config_add --template="../sources/regenerate_config.sh" --destination="$install_dir/regenerate_config.sh"
+ynh_config_add --template="../sources/add_config.sh" --destination="$install_dir/add_config.sh"
+chmod 550 "$install_dir/regenerate_config.sh"
+chmod 550 "$install_dir/add_config.sh"
+
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
+ynh_config_add --template="config.yaml.head" --destination="$install_dir/config.yaml.head"
+
+install -d "$install_dir/config.yaml.d" -o $app -g $app
+
+touch "$install_dir/config.yaml"
+chmod 660 "$install_dir/config.yaml"
+
+# Add a first client
+if [[ -n ${oidc_name:-} && -n ${oidc_callback:-} && -n ${oidc_secret:-} ]]; then
+    bash "$install_dir/add_config.sh" "$app" "$oidc_name" "$oidc_callback" "$oidc_secret"
+fi
+
+chown $app:$app -R "$install_dir"
 
 #=================================================
 # SETUP SYSTEMD
@@ -34,8 +52,13 @@ ynh_script_progression "Configuring $app's systemd service..."
 # Create a dedicated NGINX config
 ynh_config_add_nginx
 
+# Add Dex service
 ynh_config_add_systemd
 yunohost service add "$app" --description="OpenID Connect Provider" --log="/var/log/$app/$app.log"
+
+# Add monitoring service
+ynh_config_add --template="monitor.path"    --destination="/etc/systemd/system/$app-monitor.path"
+ynh_config_add --template="monitor.service" --destination="/etc/systemd/system/$app-monitor.service"
 
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
@@ -47,6 +70,8 @@ ynh_script_progression "Starting $app's systemd service..."
 
 # Start a systemd service
 ynh_systemctl --service="$app" --action="start"
+systemctl enable "$app-monitor.path" --quiet --now
+systemctl enable "$app-monitor.service" --quiet --now
 
 #=================================================
 # END OF SCRIPT

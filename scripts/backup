@@ -20,6 +20,8 @@ ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup "/etc/logrotate.d/$app"
 
+ynh_backup "/etc/systemd/system/$app-monitor.path"
+ynh_backup "/etc/systemd/system/$app-monitor.service"
 ynh_backup "/etc/systemd/system/$app.service"
 
 #=================================================
