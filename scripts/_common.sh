@@ -10,7 +10,7 @@ _download_dex_from_docker() {
     debian=$(lsb_release --codename --short)
     if [[ $debian = "bullseye" ]]; then
         docker_version="$(ynh_app_upstream_version)-distroless"
-    elif [[ $debian = "bookworm" ]]; then
+    else
         docker_version="$(ynh_app_upstream_version)-alpine"
     fi
 
