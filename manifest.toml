@@ -41,8 +41,8 @@ ram.runtime = "50M"
 
     [install.optional_settings]
     type = "markdown"
-    ask.en = "The next settings are optional. If any of them is left empty, then Dex will not be configured for a first client."
-    ask.fr = "Les paramètres suivants sont optionnels. Si l'un d'entre eux est laissé vide, alors Dex ne seront pas configurée pour un premier client."
+    ask.en = "The next settings are optional and can be used to manually setup a first client. Leave any of them empty and no client will be added. Compatible apps can automatically add their client configuration in Dex."
+    ask.fr = "Les paramètres suivants sont optionnels et peuvent être utilisés pour mettre en place manuellement un premier client. Si l'un d'entre eux est laissé vide, alors aucun client ne sera jouté. Les apps compatibles peuvent ajouter automatiquement la configuration de leur client à Dex."
 
     [install.oidc_name]
     optional = true
