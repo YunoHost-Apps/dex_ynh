@@ -20,4 +20,4 @@ test_format = 1.0
     # Commits to test upgrade from
     # -------------------------------
 
-    test_upgrade_from.6ac2437d.name = "Upgrade from 2.37.0 (packaging v2)"
+    test_upgrade_from.9beefb7a90fc7343a9559ea73e90ebd7fa067f51.name = "Upgrade from 2.43.1"
