@@ -36,6 +36,7 @@ ynh_restore "/var/log/$app/"
 #=================================================
 ynh_script_progression "Reloading NGINX web server and $app's service..."
 
+systemctl daemon-reload --quiet
 ynh_systemctl --service="$app" --action="start"
 systemctl enable "$app-monitor.service" --quiet --now
 systemctl enable "$app-monitor.path" --quiet --now
