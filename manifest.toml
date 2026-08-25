@@ -18,7 +18,7 @@ admindoc = "https://dexidp.io/docs/"
 code = "https://github.com/dexidp/dex"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = false
